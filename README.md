@@ -37,6 +37,7 @@
 | **ไม่มี Readiness Probe**                                           | Pod พร้อมรับทราฟฟิก แต่ Connection DB ใช้ไม่ได้                                                                          |
 
 ---
+## Sequence Diagram
 ```mermaid
 sequenceDiagram
     autonumber
