@@ -219,11 +219,11 @@ Data Source=(DESCRIPTION=(ENABLE=BROKEN)
  },
 ...
  ```
-### การนำไปใช้งาน แทนค่าจริงในพารามิเตอร์
+#### การนำ ConnectionStrings ไปใช้งาน โดย แทนค่าจริงในพารามิเตอร์ ดังนี้
 
-> User Id=**{UserDB}**
-> Password=**{UserDB_Passwrod}**
-> SERVICE_NAME=**{SERVICE_NAME}**
+> User Id=**{UserDB}** ..., 
+> Password=**{UserDB_Passwrod}** ..., 
+> SERVICE_NAME=**{SERVICE_NAME}** ...
 
 # 
 
