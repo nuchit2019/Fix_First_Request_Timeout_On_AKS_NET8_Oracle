@@ -220,9 +220,11 @@ Data Source=(DESCRIPTION=(ENABLE=BROKEN)
 ...
  ```
 การนำไปใช้งาน แทนค่าจริงในพารามิเตอร์
+
 > User Id=**{UserDB}**
 > Password=**{UserDB_Passwrod}**
 > SERVICE_NAME=**{SERVICE_NAME}**
+
 # 
 
 #### ✅ 3.2 ปรับโค้ด (.NET + Dapper)
