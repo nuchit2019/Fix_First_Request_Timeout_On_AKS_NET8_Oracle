@@ -1,9 +1,6 @@
-# How to Fix **First Request Timeout** on AKS (.NET 8 + Oracle + Dapper)
-How to Fix “First Request Timeout” on AKS (.NET 8 + Oracle + Dapper)
+# How to Fix "First Request Timeout" on AKS (.NET 8 + Oracle + Dapper) 
 
-## ✅ บทความสำหรับ Confluence
-
-### หัวข้อ: **Best Practices — การแก้ปัญหา Call แรก Timeout บน AKS (.NET + Oracle + Dapper)**
+**Best Practices — การแก้ปัญหา Call แรก Timeout บน AKS (.NET + Oracle + Dapper)**
 
 ---
 
