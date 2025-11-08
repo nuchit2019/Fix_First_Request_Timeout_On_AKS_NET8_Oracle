@@ -210,6 +210,15 @@ Data Source=(DESCRIPTION=(ENABLE=BROKEN)
 | `Connection Lifetime=300`  | ตัด stale connection ทุก 5 นาที                   |
 | `Validate Connection=true` | เช็ค connection ก่อนใช้งานจริง ลด Timeout         |
 
+
+เช่น
+```ini
+...
+ "ConnectionStrings": {
+   "Receipts": "User Id={UserDB};Password={UserDB_Passwrod};Data Source=(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS=(PROTOCOL=TCP)(HOST=XXX.JANAWAT.COM)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XXXPROD)));Connection Timeout=120;Pooling=true;Min Pool Size=2;Max Pool Size=50;Incr Pool Size=5;Decr Pool Size=2;Connection Lifetime=300;Validate Connection=true;Statement Cache Size=50;Load Balancing=false;HA Events=true;"
+ },
+...
+ ```
 # 
 
 #### ✅ 3.2 ปรับโค้ด (.NET + Dapper)
