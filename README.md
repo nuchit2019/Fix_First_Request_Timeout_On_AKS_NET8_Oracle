@@ -38,6 +38,8 @@
 
 ---
 ## Sequence Diagram
+
+### Sequence Diagram แสดงลำดับเหตุการณ์ (Timeline) ของการเชื่อมต่อระหว่าง API บน AKS → Connection Pool → Oracle DB และ Network (Firewall/LB/NAT) เพื่อให้เห็นว่า ทำไม “Call แรก” จึง Timeout และ เกิดอะไรขึ้นหลังจากการแก้ปัญหา
 ```mermaid
 sequenceDiagram
     autonumber
