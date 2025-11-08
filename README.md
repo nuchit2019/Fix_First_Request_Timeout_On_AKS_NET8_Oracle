@@ -211,14 +211,18 @@ Data Source=(DESCRIPTION=(ENABLE=BROKEN)
 | `Validate Connection=true` | เช็ค connection ก่อนใช้งานจริง ลด Timeout         |
 
 
-เช่น
+### ตัวอย่าง ConnectionStrings
 ```ini
 ...
  "ConnectionStrings": {
-   "Receipts": "User Id={UserDB};Password={UserDB_Passwrod};Data Source=(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS=(PROTOCOL=TCP)(HOST=XXX.JANAWAT.COM)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XXXPROD)));Connection Timeout=120;Pooling=true;Min Pool Size=2;Max Pool Size=50;Incr Pool Size=5;Decr Pool Size=2;Connection Lifetime=300;Validate Connection=true;Statement Cache Size=50;Load Balancing=false;HA Events=true;"
+   "Receipts": "User Id={UserDB};Password={UserDB_Passwrod};Data Source=(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS=(PROTOCOL=TCP)(HOST={HOST})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME={SERVICE_NAME})));Connection Timeout=120;Pooling=true;Min Pool Size=2;Max Pool Size=50;Incr Pool Size=5;Decr Pool Size=2;Connection Lifetime=300;Validate Connection=true;Statement Cache Size=50;Load Balancing=false;HA Events=true;"
  },
 ...
  ```
+การนำไปใช้งาน แทนค่าจริงในพารามิเตอร์
+> User Id=**{UserDB}**
+> Password=**{UserDB_Passwrod}**
+> SERVICE_NAME=**{SERVICE_NAME}**
 # 
 
 #### ✅ 3.2 ปรับโค้ด (.NET + Dapper)
