@@ -278,14 +278,12 @@ SQLNET.EXPIRE_TIME = 5
 | เมื่อปรับค่าตามบทความนี้ จะลด timeout ครั้งแรกจาก **10–30 วินาที → เหลือ < 500ms**                        |
 
 # 
+#เอกสารอ้างอิง
+https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html
+ 
+### 👨‍💻 Author
 
-### ✅ Check List ก่อน Deploy
-
-* [ ] มี `ENABLE=BROKEN` + `Validate Connection=true`
-* [ ] ตั้ง `Min Pool Size >= 2`
-* [ ] ใช้ `Connection Lifetime=300`
-* [ ] readiness probe ยิง SQL
-* [ ] ไม่เก็บ connection เป็น singleton/scoped
-* [ ] มี logging เวลาเปิด connection
-
+> *  Nuchito-นุชิโตะ
+> *  2025-11-08
+> *  ขอบคุณ ChatBot
 
