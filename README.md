@@ -36,7 +36,7 @@
 | **ไม่มี Readiness Probe**                                           | Pod พร้อมรับทราฟฟิก แต่ Connection DB ใช้ไม่ได้                                                                          |
 
 # 
-## Sequence Diagram
+### Sequence Diagram
 
 แสดงลำดับเหตุการณ์ (Timeline) ของการเชื่อมต่อระหว่าง API บน AKS → Connection Pool → Oracle DB และ Network (Firewall/LB/NAT) เพื่อให้เห็นว่า ทำไม “Call แรก” จึง Timeout และ เกิดอะไรขึ้นหลังจากการแก้ปัญหา
 
@@ -94,9 +94,9 @@ sequenceDiagram
 ```
  
 
-# คำอธิบาย Sequence Diagram
+### คำอธิบาย Sequence Diagram
 
-## 🔹 ส่วนที่ 1: Idle ช่วงข้ามคืน (ปัญหากำลังก่อตัว)
+### 🔹 ส่วนที่ 1: Idle ช่วงข้ามคืน (ปัญหากำลังก่อตัว)
  
 
 | องค์ประกอบ                     | ความหมาย                                                                          |
@@ -117,7 +117,7 @@ sequenceDiagram
 
 # 
 
-## 🔹 ส่วนที่ 2: Request ครั้งแรกของวัน (เช้า) → Timeout
+### 🔹 ส่วนที่ 2: Request ครั้งแรกของวัน (เช้า) → Timeout
  
 
 **ลำดับเหตุการณ์**
@@ -136,14 +136,14 @@ sequenceDiagram
 
 # 
 
-## 🔹 ส่วนที่ 3: Request ถัดไป → สำเร็จ
+### 🔹 ส่วนที่ 3: Request ถัดไป → สำเร็จ
  
 
 ตอนนี้ connection ใหม่นั้นสดและดี → ไม่มีปัญหาอีก
 
 # 
 
-## 🔹 ส่วนที่ 4: แนวทางป้องกัน (Happy Path หลัง tuning)
+### 🔹 ส่วนที่ 4: แนวทางป้องกัน (Happy Path หลัง tuning)
  
 
 | Best Practice              | ทำหน้าที่                                   |
