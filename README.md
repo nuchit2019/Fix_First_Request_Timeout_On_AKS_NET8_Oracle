@@ -102,10 +102,10 @@ sequenceDiagram
 
 | องค์ประกอบ                     | ความหมาย                                                                          |
 | ------------------------------ | --------------------------------------------------------------------------------- |
-| **S = API Pod**                | ตัว .NET Web API ที่รันอยู่บน AKS                                                 |
-| **P = Connection Pool (.NET)** | ที่เก็บ Connection ให้ reuse ลดเวลาสร้าง connection ใหม่                          |
-| **D = Oracle DB**              | ระบบฐานข้อมูล                                                                     |
-| **N = FW/LB/NAT**              | Firewall, Load Balancer และ NAT Gateway (network layer) ที่มี Idle Timeout Policy |
+| **API Pod**                | ตัว .NET Web API ที่รันอยู่บน AKS                                                 |
+| **Connection Pool (.NET)** | ที่เก็บ Connection ให้ reuse ลดเวลาสร้าง connection ใหม่                          |
+| **Oracle DB**              | ระบบฐานข้อมูล                                                                     |
+| **FW/LB/NAT**              | Firewall, Load Balancer และ NAT Gateway (network layer) ที่มี Idle Timeout Policy |
 
 **สิ่งที่เกิดขึ้นจริงในช่วง Idle:**
 
