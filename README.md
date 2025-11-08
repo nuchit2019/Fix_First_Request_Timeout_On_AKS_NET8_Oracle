@@ -38,6 +38,58 @@
 
 ---
 
+sequenceDiagram
+    autonumber
+    participant U as User/Client
+    participant S as API Pod (.NET)
+    participant P as Conn Pool
+    participant D as Oracle DB
+    participant N as FW/LB/NAT
+
+    rect rgb(245,245,245)
+    note over S,P: ช่วง Idle (ข้ามคืน)
+    N-->>D: Idle timeout policy (ปิด TCP ที่ว่างนาน)
+    D-->>P: Connection ถูกปิดฝั่ง DB (ไม่แจ้งแอป)
+    end
+
+    U->>S: Request #1 (เช้า)
+    S->>P: ขอเช่า Connection จาก Pool
+    alt Connection เดิมยังอยู่ใน Pool แต่จริงๆ "ตายแล้ว"
+        P-->>S: คืน Conn เก่า (คิดว่ายังดี)
+        S->>D: ส่งคำสั่ง SQL ผ่าน Conn เก่า
+        D-->>S: No response / RST (ORA-12570/03113/12170)
+        S-->>U: Timeout / 500
+        note over S: Driver mark broken & ทิ้ง Conn นี้
+        S->>P: ขอ Conn ใหม่ (สร้างใหม่)
+        P->>D: New Session / Handshake
+        D-->>P: OK
+    else Connection พร้อมใช้งาน (Warm/Validated)
+        P-->>S: คืน Conn ดี (ผ่าน Validate)
+    end
+
+    U->>S: Request #2
+    S->>P: ขอ Conn จาก Pool (ตัวใหม่ที่เพิ่งสร้าง)
+    P->>D: Execute SQL
+    D-->>S: Result
+    S-->>U: 200 OK
+
+    %% แนวทางป้องกัน (Happy Path พร้อม readiness/validate)
+    par Readiness Probe (ก่อนรับทราฟฟิก)
+        S->>S: /health/db ทำ SELECT 1 FROM DUAL
+        alt DB พร้อม
+            S-->>S: Ready=true (Service เริ่มรับทราฟฟิก)
+        else DB ไม่พร้อม
+            S-->>S: Ready=false (ยังไม่รับทราฟฟิก)
+        end
+    and Connection Lifecycle
+        S->>P: Min Pool Size=2 (อุ่นตั้งแต่เริ่ม)
+        S->>P: Connection Lifetime=300 (รีเฟรชทุก 5 นาที)
+        S->>P: Validate Connection=true (ก่อนยืม)
+        S->>P: ENABLE=BROKEN (mark broken เร็ว)
+        D-->>D: SQLNET.EXPIRE_TIME=5 (DB probe ไล่ stale)
+    end
+
+
 ### ✅ 2. ผลกระทบ (Impact)
 
 | ผลกระทบ                             | รายละเอียด                                  |
