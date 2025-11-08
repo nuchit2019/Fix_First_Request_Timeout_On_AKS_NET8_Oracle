@@ -37,7 +37,7 @@
 | **ไม่มี Readiness Probe**                                           | Pod พร้อมรับทราฟฟิก แต่ Connection DB ใช้ไม่ได้                                                                          |
 
 ---
-
+```mermaid
 sequenceDiagram
     autonumber
     participant U as User/Client
@@ -88,7 +88,7 @@ sequenceDiagram
         S->>P: ENABLE=BROKEN (mark broken เร็ว)
         D-->>D: SQLNET.EXPIRE_TIME=5 (DB probe ไล่ stale)
     end
-
+```
 
 ### ✅ 2. ผลกระทบ (Impact)
 
