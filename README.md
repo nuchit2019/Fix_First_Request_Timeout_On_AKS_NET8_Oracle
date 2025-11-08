@@ -290,7 +290,7 @@ SQLNET.EXPIRE_TIME = 5
 | --------------------------------------------------------------------------------------------------------- |
 | ปัญหา Timeout ครั้งแรกไม่ได้เกิดจาก SQL แต่เกิดจาก **Stale Connection + Cold Pool + Idle Timeout บน AKS** |
 | แนวทางแก้คือ **Warm pool + Validate connection + Readiness Probe + ลบ connection ที่ stale**              |
-| เมื่อปรับค่าตามบทความนี้ จะลด timeout ครั้งแรกจาก **10–30 วินาที → เหลือ < 500ms**                        |
+ 
 
 
 ## เอกสารอ้างอิง
